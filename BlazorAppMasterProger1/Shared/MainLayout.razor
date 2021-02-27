@@ -1,0 +1,33 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+        @*<span style="color: green">Hello from Layout(body bottom content)</span>*@
+    </div>
+
+    <div class="main">
+        <div class="top-row px-4">
+            @*<span style="color: orange">Hello from Layout(body top content)</span>*@
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        </div>
+
+        <div class="content px-4">
+            <CascadingValue Value="_appStyle">
+                @Body
+            </CascadingValue>
+
+            @*<span style="color: red">Hello from Layout(body bottom content)</span>
+                <BlazorAppMasterProger1.Pages.Counter />*@
+        </div>
+    </div>
+</div>
+
+@code
+{
+    string Color = "red";
+
+    string Size = "65px";
+
+    AppStyle _appStyle = new AppStyle();
+}

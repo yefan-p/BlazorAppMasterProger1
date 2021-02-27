@@ -1,0 +1,23 @@
+﻿@page "/"
+
+<div class="row">
+    <div class="col text-center">
+        <h1>Welcome to our Game Industry Page</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col text-center">
+        <h2>Show all games in MOCK Database:</h2>
+    </div>
+</div>
+
+<GameListTable Games="games"/>
+
+<IndividualGame Game="oneGameToShow" IsTable="false" DisplayButton="true" SwitchGame="ShowNewGame"/>
+
+<div class="row">
+    <div class="col text-center">
+        <button @onclick="AddNewGame" class="btn btn-success" > Add new game</button>
+    </div>
+</div>

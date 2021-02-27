@@ -1,0 +1,11 @@
+﻿@page "/list/{PageNumber}"
+
+<Paginator MaxPageNumber="_maxPageNumber" 
+           ChangePageHandler="PaginatorClick" 
+           CurrentPageNumber="_pageNumber"/>
+
+    <GameListTable Games="_games" />
+
+<Paginator MaxPageNumber="_maxPageNumber" 
+           ChangePageHandler="PaginatorClick"
+           CurrentPageNumber="_pageNumber"/>

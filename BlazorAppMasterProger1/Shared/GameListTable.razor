@@ -1,0 +1,38 @@
+﻿<div class="row mb-3">
+    <div class="col">
+        <select class="btn btn-toolbar border dropdown-toggle" @onchange="ChangeTableStyle">
+            <option selected value="">Choose Table Style</option>
+            @foreach (var item in AppStyle.TableStyle)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table @_currentTableStyle">
+        <thead class="thead-light">
+            <tr>
+                <th>Name</th>
+                <th>Genre</th>
+                <th>Realse Date</th>
+                <th><input type="checkbox" @bind="displayButtons" /></th>
+            </tr>
+        </thead>
+        <tbody>
+            <GenericList ListOfItems="Games">
+                <ItemTemplate Context="game">
+                    <IndividualGame Game="game" IsTable="true" DisplayButton="displayButtons" DeleteGame="DeleteGame" />
+                </ItemTemplate>
+            </GenericList>
+            <Confirmation @ref="_confirmation"
+                          onCancel="OnCancel"
+                          onConfrim="OnConfirm">
+                <div class="text-danger">
+                    Do you wish to delete @_gameToBeDeleted.Name
+                </div>
+            </Confirmation>
+        </tbody>
+    </table>
+</div>
